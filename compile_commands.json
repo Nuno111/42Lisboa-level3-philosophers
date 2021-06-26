@@ -1,0 +1,775 @@
+[
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_freearrays.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_freearrays.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_toupper.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_toupper.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_strlcpy.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_strlcpy.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_add_letter.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_add_letter.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_tolower.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_tolower.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_lstiter.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_lstiter.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_memset.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_memset.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_split.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_split.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_itoa.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_itoa.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_strcat.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_strcat.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_memmove.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_memmove.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "str_join_free.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "str_join_free.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_strtrim.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_strtrim.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_lstlast.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_lstlast.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_putstr.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_putstr.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_strmapi.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_strmapi.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_lstnew.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_lstnew.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_free_list.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_free_list.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_strchrindex.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_strchrindex.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_putnbr.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_putnbr.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_lstduplicate.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_lstduplicate.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_isascii.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_isascii.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_isalpha.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_isalpha.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_putstr_fd.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_putstr_fd.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-g",
+            "-fsanitize=address",
+            "-I.",
+            "-Ilibft",
+            "libft/libft.a",
+            "-o",
+            "philosophers",
+            "philosophers.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers",
+        "file": "philosophers.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_lstmap.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_lstmap.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "get_next_line.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "get_next_line.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_calloc.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_calloc.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_putnbr_fd.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_putnbr_fd.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_memcpy.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_memcpy.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_strnstr.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_strnstr.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_isalnum.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_isalnum.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_lstadd_back.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_lstadd_back.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_strlcat.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_strlcat.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_putchar_fd.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_putchar_fd.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_isspace.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_isspace.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_isdigit.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_isdigit.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_memchr.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_memchr.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_substr.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_substr.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_strcmp.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_strcmp.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_memccpy.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_memccpy.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_atoi.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_atoi.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_lstdelone.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_lstdelone.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_strrchr.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_strrchr.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_strncmp.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_strncmp.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_strdup.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_strdup.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_bzero.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_bzero.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_strnew.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_strnew.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_lstsize.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_lstsize.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_str_is_numeric.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_str_is_numeric.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_strchr.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_strchr.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_putchar.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_putchar.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_putendl_fd.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_putendl_fd.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_strjoin.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_strjoin.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_memcmp.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_memcmp.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_lstclear.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_lstclear.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_isprint.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_isprint.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_strlen.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_strlen.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "ft_lstadd_front.c"
+        ],
+        "directory": "/home/nuno/42Lisboa-level3-philosophers/libft",
+        "file": "ft_lstadd_front.c"
+    }
+]

@@ -2,7 +2,7 @@ NAME = philosophers
 
 CC = gcc
 
-ERR_FLAGS = -Wall -Wextra -Werror
+ERR_FLAGS = -Wall -Wextra #-Werror
 
 DEBUG_FLAGS = -g -fsanitize=address
 
@@ -10,7 +10,7 @@ DEP_FLAGS = -I. -Ilibft
 
 LIBFT = libft/libft.a
 
-LIB = philosphers.h
+LIB = philosophers.h
 
 SRC = ${wildcard *.c}
 
@@ -23,11 +23,11 @@ philosophers: ${LIB} ${SRC}
 	${CC} ${ERR_FLAGS} ${DEBUG_FLAGS} ${DEP_FLAGS} ${SRC} ${LIBFT} -o $@
 
 clean:
-	rm -rf push_swap *.dSYM
+	rm -rf philosophers *.dSYM
 
 fclean: clean
 	cd libft && ${MAKE} fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re libft
+.PHONY: all clean fclean re libft 
