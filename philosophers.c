@@ -1,26 +1,58 @@
 #include "philosophers.h"
 
-void	get_curr_time(t_clock *clock)
+static	void	init_threads(t_philos *philos, int argc)
 {
-	gettimeofday(&clock->saved_time, NULL);
-	clock->curr = (clock->saved_time.tv_sec - clock->start) * 1000;
+	int i;
+
+	i = -1;
+	philos->philo = malloc(sizeof(pthread_t *) * argc);
+	if (!philos->philo)
+		ft_exit(philos->philo, "Unable to allocate memory for threads\n");
+	while (++i < argc)
+	{
+		philos->philo[i] = malloc(sizeof(pthread_t));
+		if (!philos->philo[i])
+			ft_exit(philos->philo, "Unable to allocate memory for thread\n");
+	}
+	philos->philo[i] = NULL;
 }
 
-static	void	init_params(int argc, char **argv)
+static	int	init_params(int argc, char **argv, t_philos *philos)
 {
+	int i;
 
+	i = 1;
+	while (i < argc - 1)
+	{
+		if (!ft_str_is_numeric(argv[i]) || ft_atoi(argv[i]) < 0)
+			return (1);
+		i++;
+	}
+	philos->count = ft_atoi(argv[1]);
+	philos->time_to_die = ft_atoi(argv[2]);
+	philos->time_to_eat = ft_atoi(argv[3]);
+	philos->time_to_sleep = ft_atoi(argv[4]);
+	if (argc == 6)
+		philos->must_eat_count = ft_atoi(argv[5]);
+	else
+		philos->must_eat_count = 0;
+	return (0);
 }
+
 int main(int argc, char **argv)
 {
 	struct timeval cur_time;
 	t_clock clock;
+	t_philos philos;
 
-	init_params(argc, argv);
+	if (argc < 5 || argc > 6 || init_params(argc, argv, &philos) != 0)
+	{
+		printf("Error. Invalid arguments input.\n");
+		exit (1);
+	}
+	init_threads(&philos, argc);
 	gettimeofday(&cur_time, NULL);
 	clock.start = cur_time.tv_sec;
-	sleep(3);
-	get_curr_time(&clock);
-	printf("%ld\n", clock.curr);
 
 	return (0);
 }
