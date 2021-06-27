@@ -24,5 +24,6 @@ typedef struct s_philos
 }				t_philos;
 
 void	ft_exit(pthread_t **philo, char *msg);
+void	get_curr_time(t_clock *clock);
 
 #endif

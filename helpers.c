@@ -22,5 +22,9 @@ void	ft_exit(pthread_t **philo, char *msg)
 	free(philo);
 	philo = NULL;
 	if (msg)
+	{
 		printf("%s", msg);
+		exit(1);
+	}
+	exit(0);
 }

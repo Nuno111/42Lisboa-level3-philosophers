@@ -8,7 +8,7 @@ static	void	init_threads(t_philos *philos, int argc)
 	philos->philo = malloc(sizeof(pthread_t *) * argc);
 	if (!philos->philo)
 		ft_exit(philos->philo, "Unable to allocate memory for threads\n");
-	while (++i < argc)
+	while (++i < argc - 1)
 	{
 		philos->philo[i] = malloc(sizeof(pthread_t));
 		if (!philos->philo[i])
@@ -53,6 +53,7 @@ int main(int argc, char **argv)
 	init_threads(&philos, argc);
 	gettimeofday(&cur_time, NULL);
 	clock.start = cur_time.tv_sec;
-
+	ft_exit(philos.philo, NULL);
+	
 	return (0);
 }
