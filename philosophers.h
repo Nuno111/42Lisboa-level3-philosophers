@@ -13,4 +13,13 @@ typedef struct s_clock
 	long curr;
 }				t_clock;
 
+typedef struct s_philos
+{
+	long count;
+	long time_to_die;
+	long time_to_eat;
+	long time_to_sleep;
+	long must_eat_count;
+}				t_philos;
+
 #endif

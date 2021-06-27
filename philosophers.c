@@ -6,12 +6,16 @@ void	get_curr_time(t_clock *clock)
 	clock->curr = (clock->saved_time.tv_sec - clock->start) * 1000;
 }
 
-int main(void)
+static	void	init_params(int argc, char **argv)
+{
+
+}
+int main(int argc, char **argv)
 {
 	struct timeval cur_time;
 	t_clock clock;
 
-
+	init_params(argc, argv);
 	gettimeofday(&cur_time, NULL);
 	clock.start = cur_time.tv_sec;
 	sleep(3);
