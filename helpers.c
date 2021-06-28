@@ -6,21 +6,10 @@ void	get_curr_time(t_clock *clock)
 	clock->curr = (clock->saved_time.tv_sec - clock->start) * 1000;
 }
 
-void	ft_exit(pthread_t **philo, char *msg)
+void	ft_exit(pthread_t *threads, char *msg)
 {
-	int i;
-
-	i = -1;
-	if (philo)
-	{
-		while (philo[++i])
-		{
-			free(philo[i]);
-			philo[i] = NULL;
-		}
-	}
-	free(philo);
-	philo = NULL;
+	if (threads)
+		free(threads);
 	if (msg)
 	{
 		printf("%s", msg);
@@ -34,7 +23,8 @@ void	*init_thread(void *arg)
 	t_philos *philos;
 
 	philos = (t_philos *)arg;
-	printf("This thread id is %ld, curr %d\n",  *(long *)philos->philo[philos->curr], philos->curr);;
+	printf("This thread id is %ld, curr %d\n",
+			*(long *)philos->threads[philos->curr], philos->curr);;
 
 	return NULL;
 }
@@ -46,15 +36,15 @@ void	create_threads(t_philos *philos, t_clock *clock)
 	gettimeofday(&cur_time, NULL);
 	clock->start = cur_time.tv_sec;
 	philos->curr = 0;
-	while (philos->curr < philos->count / 2)
+	while (philos->curr < philos->count - 1)
 	{
-		pthread_create(philos->philo[philos->curr], NULL, init_thread, (void *)philos);
+		pthread_create(&philos->threads[philos->curr], NULL, init_thread, (void *)philos);
 		philos->curr += 2;
 	}
 	philos->curr = 0;
-	while (philos->curr < philos->count / 2)
+	while (philos->curr < philos->count - 1)
 	{
-		pthread_join(*philos->philo[philos->curr], NULL);
+		pthread_join(philos->threads[philos->curr], NULL);
 		philos->curr += 2;
 	}
 }
