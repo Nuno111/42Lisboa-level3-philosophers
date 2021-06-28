@@ -15,15 +15,17 @@ typedef struct s_clock
 
 typedef struct s_philos
 {
-	long count;
-	long time_to_die;
-	long time_to_eat;
-	long time_to_sleep;
-	long must_eat_count;
-	pthread_t **philo;
+	int			curr;
+	long		count;
+	long		time_to_die;
+	long		time_to_eat;
+	long		time_to_sleep;
+	long		must_eat_count;
+	pthread_t	**philo;
 }				t_philos;
 
 void	ft_exit(pthread_t **philo, char *msg);
 void	get_curr_time(t_clock *clock);
+void	create_threads(t_philos *philos, t_clock *clock);
 
 #endif

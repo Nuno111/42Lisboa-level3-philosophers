@@ -41,7 +41,6 @@ static	int	init_params(int argc, char **argv, t_philos *philos)
 
 int main(int argc, char **argv)
 {
-	struct timeval cur_time;
 	t_clock clock;
 	t_philos philos;
 
@@ -51,8 +50,7 @@ int main(int argc, char **argv)
 		exit (1);
 	}
 	init_threads(&philos, argc);
-	gettimeofday(&cur_time, NULL);
-	clock.start = cur_time.tv_sec;
+	create_threads(&philos, &clock);
 	ft_exit(philos.philo, NULL);
 	
 	return (0);

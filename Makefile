@@ -6,7 +6,7 @@ ERR_FLAGS = -Wall -Wextra #-Werror
 
 DEBUG_FLAGS = -g -fsanitize=address
 
-DEP_FLAGS = -I. -Ilibft
+DEP_FLAGS = -I. -Ilibft -lpthread
 
 LIBFT = libft/libft.a
 
