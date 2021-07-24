@@ -24,7 +24,7 @@ void	*init_thread(void *arg)
 
 	philos = (t_philos *)arg;
 	printf("This thread id is %ld, curr %d\n",
-			*(long *)philos->threads[philos->curr], philos->curr);;
+			*(long *)philos->threads[philos->curr], philos->curr);
 
 	return NULL;
 }
