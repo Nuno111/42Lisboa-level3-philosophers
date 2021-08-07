@@ -1,6 +1,6 @@
 #include "philosophers.h"
 
-static	int	init_params(int argc, char **argv, t_philos *philos)
+static	int validate_input(int argc, char **argv)
 {
 	int i;
 
@@ -11,6 +11,11 @@ static	int	init_params(int argc, char **argv, t_philos *philos)
 			return (1);
 		i++;
 	}
+	return (0);
+}
+
+static	int	init_params(int argc, char **argv, t_philos *philos)
+{
 	philos->count = ft_atoi(argv[1]);
 	philos->time_to_die = ft_atoi(argv[2]);
 	philos->time_to_eat = ft_atoi(argv[3]);
@@ -30,7 +35,8 @@ int main(int argc, char **argv)
 	t_clock clock;
 	t_philos philos;
 
-	if (argc < 5 || argc > 6 || init_params(argc, argv, &philos) != 0)
+	if (argc < 5 || argc > 6 || 
+	(init_params(argc, argv, &philos) && validate_input(argc, argv)) != 0)
 	{
 		printf("Error. Invalid arguments input.\n");
 		exit(1);
