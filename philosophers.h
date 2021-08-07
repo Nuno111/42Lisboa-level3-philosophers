@@ -25,7 +25,7 @@ typedef struct s_philos
 }				t_philos;
 
 void	ft_exit(pthread_t *threads, char *msg);
-void	get_curr_time(t_clock *clock);
+void	update_curr_time(t_clock *clock);
 void	create_threads(t_philos *philos, t_clock *clock);
 
 #endif
