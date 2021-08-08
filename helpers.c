@@ -3,7 +3,8 @@
 void	update_curr_time(t_clock *clock)
 {
 	gettimeofday(&clock->saved_time, NULL);
-	clock->curr = (((clock->saved_time.tv_sec - clock->start.tv_sec) * 1000) + ((clock->saved_time.tv_usec - clock->start.tv_usec) / 1000));
+	clock->curr = (((clock->saved_time.tv_sec - clock->start.tv_sec) * 1000) +
+	((clock->saved_time.tv_usec - clock->start.tv_usec) / 1000));
 }
 
 void	ft_exit(pthread_t *threads, char *msg)
@@ -20,30 +21,33 @@ void	ft_exit(pthread_t *threads, char *msg)
 
 void	*init_thread(void *arg)
 {
-	t_clock* clock = arg;
-
-	update_curr_time(clock);
-	printf("I am thread %ld, and I have started.\n", clock->curr);
-	usleep(2500000);
-	update_curr_time(clock);
-	printf("I am doneeeeee %ld\n",clock->curr);
+	t_data *data = arg;
+	update_curr_time(&data->clock);
+	printf("%ld %d has taken a fork\n", data->clock.curr, data->counter);
+	update_curr_time(&data->clock);
+	printf("%ld %d has taken a fork\n", data->clock.curr, data->counter);
+	update_curr_time(&data->clock);
+	printf("%ld %d is eating\n", data->clock.curr, data->counter);
+	usleep(data->time_to_eat * 1000);
+	update_curr_time(&data->clock);
+	printf("%ld %d is sleeping\n", data->clock.curr, data->counter);
 	
 	return (NULL);
 }
 
-void	create_threads(t_philos *philos, t_clock *clock)
+void	create_threads(t_data *data)
 {
-	gettimeofday(&clock->start, NULL);
-	philos->curr = 0;
-	while (philos->curr < philos->count - 1)
+	gettimeofday(&data->clock.start, NULL);
+	data->counter = 0;
+	while (data->counter < data->philo_count - 1)
 	{
-		pthread_create(&philos->threads[philos->curr], NULL, init_thread, clock);
-		philos->curr++;
+		pthread_create(&data->threads[data->counter], NULL, init_thread, data);
+		data->counter++;
 	}
-	philos->curr = 0;
-	while (philos->curr < philos->count - 1)
+	data->counter= 0;
+	while (data->counter < data->philo_count - 1)
 	{
-		pthread_join(philos->threads[philos->curr], NULL);
-		philos->curr ++;
+		pthread_join(data->threads[data->counter], NULL);
+		data->counter++;
 	}
 }
