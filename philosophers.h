@@ -9,7 +9,7 @@
 typedef struct s_clock
 {
 	struct timeval saved_time;
-	long start;
+	struct timeval start;
 	long curr;
 }				t_clock;
 

@@ -6,6 +6,7 @@ Project Description
 
 ### Todo
 
+- [ ] make 10 philos out of 20 start eating at same time and log time finished  
 - [ ] testing  
 
 ### In Progress
