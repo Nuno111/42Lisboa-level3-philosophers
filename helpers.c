@@ -22,8 +22,8 @@ void	ft_exit(pthread_t *threads, char *msg)
 void	*init_thread(void *arg)
 {
 	t_clock clock;
-	int		id;
 	t_data	*data;
+	int		id;
 
 	data = arg;
 	id = data->counter++;

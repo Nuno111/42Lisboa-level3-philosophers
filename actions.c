@@ -1,6 +1,7 @@
 #include "philosophers.h"
 
-void eat() {
+void eat(t_data *data, ) {
+
 
 
 }
