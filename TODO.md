@@ -6,13 +6,17 @@ Project Description
 
 ### Todo
 
-- [ ] Create a clock for each thread  
-- [ ] create a fork variable shared between all  
-- [ ] place the fork variable between mutex state  
+- [ ] each philo only needs access to ID and forks  
+- [ ] each thread have its own internal clock  
+- [ ] create sharable forks variable  
+- [ ] if forks avaiable start eating,  
+- [ ] check if will die every 100ms  
+- [ ] finished eating start sleeping  
+- [ ] finished sleeping start thinking  
+- [ ] repeat process until dead  
 
 ### In Progress
 
-- [ ] make 10 philos out of 20 start eating at same time and log time finished  
 
 ### Done ✓
 
