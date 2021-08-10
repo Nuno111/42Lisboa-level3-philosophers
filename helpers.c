@@ -27,8 +27,10 @@ void	*init_thread(void *arg)
 
 	data = arg;
 	id = data->counter++;
-
-
+	while (true) {
+		if (!eat() || !sleep() || !think())
+			die();
+	}
 }
 
 void	create_threads(t_data *data)

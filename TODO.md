@@ -6,12 +6,12 @@ Project Description
 
 ### Todo
 
-- [ ] n-2 and n-1, edge case num 1  
 - [ ] if forks avaiable start eating,  
 - [ ] check if will die every 100ms  
 - [ ] finished eating start sleeping  
 - [ ] finished sleeping start thinking  
 - [ ] repeat process until dead  
+- [ ] n-2 and n-1, edge case num 1  
 
 ### In Progress
 
