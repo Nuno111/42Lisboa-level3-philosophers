@@ -24,9 +24,6 @@ static	int	init_params(int argc, char **argv, t_data *data)
 		data->must_eat_count = ft_atoi(argv[5]);
 	else
 		data->must_eat_count = 0;
-	data->threads = malloc(sizeof(pthread_t) * data->philo_count);
-	if (!data->threads)
-		return (1);
 	return (0);
 }
 
@@ -41,7 +38,6 @@ int main(int argc, char **argv)
 		exit(1);
 	}
 	create_threads(&data);
-	ft_exit(data.threads, NULL);
 	
 	return (0);
 }

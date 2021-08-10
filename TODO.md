@@ -6,7 +6,7 @@ Project Description
 
 ### Todo
 
-- [ ] each philo only needs access to ID and forks  
+- [ ] each philo only needs access to ID configs, and forks  
 - [ ] each thread have its own internal clock  
 - [ ] create sharable forks variable  
 - [ ] if forks avaiable start eating,  

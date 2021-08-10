@@ -21,33 +21,34 @@ void	ft_exit(pthread_t *threads, char *msg)
 
 void	*init_thread(void *arg)
 {
-	t_data *data = arg;
-	update_curr_time(&data->clock);
-	printf("%ld %d has taken a fork\n", data->clock.curr, data->counter);
-	update_curr_time(&data->clock);
-	printf("%ld %d has taken a fork\n", data->clock.curr, data->counter);
-	update_curr_time(&data->clock);
-	printf("%ld %d is eating\n", data->clock.curr, data->counter);
-	usleep(data->time_to_eat * 1000);
-	update_curr_time(&data->clock);
-	printf("%ld %d is sleeping\n", data->clock.curr, data->counter);
-	
-	return (NULL);
+	t_clock clock;
+	int		id;
+	t_data	*data;
+
+	data = arg;
+	id = data->counter++;
+
+
 }
 
 void	create_threads(t_data *data)
 {
-	gettimeofday(&data->clock.start, NULL);
+	pthread_t *threads;
+
+	threads = malloc(sizeof(pthread_t) * data->philo_count);
+	if (!threads)
+		ft_exit(NULL, "Unable to allocate memory for threads\n");
 	data->counter = 0;
 	while (data->counter < data->philo_count - 1)
 	{
-		pthread_create(&data->threads[data->counter], NULL, init_thread, data);
+		pthread_create(&threads[data->counter], NULL, init_thread, data);
 		data->counter++;
 	}
 	data->counter= 0;
 	while (data->counter < data->philo_count - 1)
 	{
-		pthread_join(data->threads[data->counter], NULL);
+		pthread_join(threads[data->counter], NULL);
 		data->counter++;
 	}
+	free(threads);
 }
