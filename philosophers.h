@@ -21,6 +21,8 @@ typedef struct s_data
 	long		time_to_eat;
 	long		time_to_sleep;
 	long		must_eat_count;
+	bool		*fork_available;
+
 }				t_data;
 
 void	ft_exit(pthread_t *threads, char *msg);

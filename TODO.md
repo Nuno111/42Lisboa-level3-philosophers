@@ -6,9 +6,7 @@ Project Description
 
 ### Todo
 
-- [ ] each philo only needs access to ID configs, and forks  
-- [ ] each thread have its own internal clock  
-- [ ] create sharable forks variable  
+- [ ] n-2 and n-1, edge case num 1  
 - [ ] if forks avaiable start eating,  
 - [ ] check if will die every 100ms  
 - [ ] finished eating start sleeping  
@@ -20,4 +18,7 @@ Project Description
 
 ### Done ✓
 
+- [x] create sharable forks variable  
+- [x] each thread have its own internal clock  
+- [x] each philo only needs access to ID configs, and forks  
 
