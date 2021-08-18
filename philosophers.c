@@ -24,10 +24,10 @@ static	int	init_params(int argc, char **argv, t_data *data)
 		data->must_eat_count = ft_atoi(argv[5]);
 	else
 		data->must_eat_count = 0;
-	data->fork_available = malloc(sizeof(bool) * (data->philo_count / 2));
-	if (!data->fork_available)
+	data->fork= malloc(sizeof(pthread_mutex_t) * (data->philo_count));
+	if (!data->fork)
 		return (1);
-	ft_memset(data->fork_available, 1, data->philo_count / 2);
+	ft_memset(data->fork, 1, data->philo_count / 2);
 	return (0);
 }
 

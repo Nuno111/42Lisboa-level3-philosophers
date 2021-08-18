@@ -21,7 +21,7 @@ typedef struct s_data
 	long		time_to_eat;
 	long		time_to_sleep;
 	long		must_eat_count;
-	bool		*fork_available;
+	pthread_mutex_t *fork;
 
 }				t_data;
 
