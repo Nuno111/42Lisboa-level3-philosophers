@@ -1,6 +1,6 @@
 #include "philosophers.h"
 
-static	int validate_input(int argc, char **argv)
+static	void validate_input(int argc, char **argv)
 {
 	int i;
 
@@ -8,13 +8,12 @@ static	int validate_input(int argc, char **argv)
 	while (i < argc - 1)
 	{
 		if (!ft_str_is_numeric(argv[i]) || ft_atoi(argv[i]) < 0)
-			return (1);
+			ft_exit(NULL, WRONG_ARGUMENT_TYPE);
 		i++;
 	}
-	return (0);
 }
 
-static	int	init_params(int argc, char **argv, t_data *data)
+static	void init_params(int argc, char **argv, t_data *data)
 {
 	data->philo_count = ft_atoi(argv[1]);
 	data->time_to_die = ft_atoi(argv[2]);
@@ -26,22 +25,18 @@ static	int	init_params(int argc, char **argv, t_data *data)
 		data->must_eat_count = 0;
 	data->fork= malloc(sizeof(pthread_mutex_t) * (data->philo_count));
 	if (!data->fork)
-		return (1);
+		ft_exit(NULL, MEMORY_FAIL);
 	ft_memset(data->fork, 1, data->philo_count / 2);
-	return (0);
 }
 
 int main(int argc, char **argv)
 {
 	t_data data;
 
-	if (argc < 5 || argc > 6 || 
-	(init_params(argc, argv, &data) && validate_input(argc, argv)) != 0)
-	{
-		printf("Error. Invalid arguments input.\n");
-		exit(1);
-	}
+	if (argc < 5 || argc > 6 )
+		ft_exit(NULL, WRONG_ARGUMENT_NB);
+	init_params(argc, argv, &data);
+	validate_input(argc, argv);
 	create_threads(&data);
-	
 	return (0);
 }

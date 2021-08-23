@@ -6,6 +6,21 @@
 # include <time.h>
 # include "libft.h"
 
+typedef enum e_exit_code
+{
+	SKIP_PRINTING,
+	WRONG_ARGUMENT_NB,
+	WRONG_ARGUMENT_TYPE,
+	MEMORY_FAIL,
+	TIMEVAL_ERROR,
+	MUTEX_FAIL,
+	MUTEX_DESTROY_FAIL,
+	THREAD_CREATE_FAIL,
+	THREAD_JOIN_FAIL,
+	MUTEX_LOCK_FAIL,
+	MUTEX_UNLOCK_FAIL
+}			t_exit_code;
+
 typedef struct s_clock
 {
 	struct timeval saved_time;
@@ -22,7 +37,6 @@ typedef struct s_data
 	long		time_to_eat;
 	long		time_to_sleep;
 	long		must_eat_count;
-	bool		someone_died;
 	pthread_mutex_t *fork;
 	pthread_mutex_t	can_talk;
 
@@ -38,7 +52,7 @@ typedef struct s_stats
 	int		second_fork;
 }				t_stats;
 
-void	ft_exit(pthread_t *threads, char *msg);
+void	ft_exit(pthread_t *threads, t_exit_code exit_code);
 void	update_curr_time(t_clock *clock);
 void	create_threads(t_data *data);
 

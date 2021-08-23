@@ -7,18 +7,6 @@ void	update_curr_time(t_clock *clock)
 	((clock->saved_time.tv_usec - clock->start.tv_usec) / 1000));
 }
 
-void	ft_exit(pthread_t *threads, char *msg)
-{
-	if (threads)
-		free(threads);
-	if (msg)
-	{
-		printf("%s", msg);
-		exit(1);
-	}
-	exit(0);
-}
-
 void	*init_thread(void *arg)
 {
 	t_stats stats;
@@ -40,7 +28,7 @@ void	create_threads(t_data *data)
 
 	threads = malloc(sizeof(pthread_t) * data->philo_count);
 	if (!threads)
-		ft_exit(NULL, "Unable to allocate memory for threads\n");
+		ft_exit(NULL, MEMORY_FAIL);
 	data->counter = 0;
 	while (data->counter < data->philo_count - 1)
 	{

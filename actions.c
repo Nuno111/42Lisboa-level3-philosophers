@@ -1,6 +1,5 @@
 #include "philosophers.h"
 
-
 void eat(t_stats *stats)
 {
 	should_die(stats);

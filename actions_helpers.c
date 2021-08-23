@@ -6,24 +6,17 @@ void	should_die(t_stats *stats)
 	update_curr_time(&stats->clock);
 	if (stats->clock.curr - stats->last_eaten >= stats->data->time_to_die)
 	{
-		print_status(stats, "has died");
+		print_status(stats, "has died", 1000);
 		ft_exit(&stats->data->fork, NULL);
 	}
 }
 
-void	print_status(t_stats *stats, char *msg)
+void	print_status(t_stats *stats, char *msg, long delay)
 {
-	if (controls_mutex(&stats->data->can_talk))
-	  printf("%ld %d %s\n", stats->clock.curr, stats->id, msg);
-	else
-		ft_exit(&stats->data->fork, "An error has occured when trying to lock the mutex\n");
-}
-
-bool	controls_mutex(pthread_mutex_t *mutex)
-{
-	if (pthread_mutex_lock(mutex) == 0)	
-		return (true);	
-	return (false);
+	ft_lock_mutex(&stats->data->can_talk);
+	printf("%ld %d %s\n", stats->clock.curr, stats->id, msg);
+	usleep(delay);
+	ft_unlock_mutex(&stats->data->can_talk);
 }
 
 int	assign_forks_index(t_stats *stats)
