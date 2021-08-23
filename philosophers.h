@@ -31,7 +31,6 @@ typedef struct s_stats
 {
 	t_clock clock;
 	t_data	*data;
-	bool	alive;
 	long	last_eaten;
 	int		id;
 	int		first_fork;

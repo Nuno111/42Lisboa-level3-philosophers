@@ -39,26 +39,3 @@ int	assign_forks_index(t_stats *stats)
 		stats->second_fork = stats->id - 2;
 	}
 }
-
-void try_to_eat(t_stats *stats)
-{
-	assign_forks_index(stats);
-	should_die(stats);
-	while (stats->alive)
-	{
-		if (controls_mutex(&stats->data->fork[stats->first_fork]))
-		{
-			if (controls_mutex(&stats->data->fork[stats->second_fork]))
-			{
-				print_status(stats, "has taken a fork");
-				print_status(stats, "has taken a fork");
-				eat();
-				break;
-			}
-			else
-				pthread_mutex_unlock(&stats->data->fork[stats->first_fork]);
-		}
-		else 
-			should_die(stats);
-	}
-}

@@ -1,9 +1,26 @@
 #include "philosophers.h"
 
 
-void eat() {
-
-
+void eat(t_stats *stats)
+{
+	should_die(stats);
+	assign_forks_index(stats);
+	while (true)
+	{
+		if (controls_mutex(&stats->data->fork[stats->first_fork]))
+		{
+			if (controls_mutex(&stats->data->fork[stats->second_fork]))
+			{
+				print_status(stats, "has taken a fork");
+				print_status(stats, "has taken a fork");
+				break;
+			}
+			else
+				pthread_mutex_unlock(&stats->data->fork[stats->first_fork]);
+		}
+		else 
+			should_die(stats);
+	}
 }
 
 void sleep() {

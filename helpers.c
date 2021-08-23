@@ -25,14 +25,13 @@ void	*init_thread(void *arg)
 
 	stats.data = arg;
 	stats.id = stats.data->counter++;
-	stats.alive = true;
 	should_die(&stats);
-	while (stats.alive) {
-		try_to_eat(stats);
+	while (true)
+	{
+		eat(stats);
 		sleep();
 		think();
 	}
-	die();
 }
 
 void	create_threads(t_data *data)
