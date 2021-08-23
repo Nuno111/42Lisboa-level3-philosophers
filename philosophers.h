@@ -13,6 +13,7 @@ typedef struct s_clock
 	long curr;
 }				t_clock;
 
+
 typedef struct s_data
 {
 	int			counter;
@@ -24,6 +25,15 @@ typedef struct s_data
 	pthread_mutex_t *fork;
 
 }				t_data;
+
+typedef struct s_stats
+{
+	t_clock clock;
+	t_data	*data;
+	bool	alive;
+	long	last_eaten;
+	int		id;
+}				t_stats;
 
 void	ft_exit(pthread_t *threads, char *msg);
 void	update_curr_time(t_clock *clock);

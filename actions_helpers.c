@@ -1,12 +1,34 @@
 
 #include "philosophers.h"
 
+void	should_die(t_stats *stats)
+{
+	update_curr_time(&stats->clock);
+
+	if (stats->clock.curr - stats->last_eaten >= stats->data->time_to_die)
+		stats->alive = false;
+}
+
+void	print_status(t_clock *clock, int id, char *msg)
+{
+	update_curr_time(clock);
+
+	if (!will_die())
+	  printf("%ld %d %s\n", clock->curr, id, msg);
+	else
+	{
+		printf("%ld %d has died\n");
+		ft_exit(threads, )
+	}
+
+
+}
+
 bool	take_fork(pthread_mutex_t *mutex,  t_clock *clock, int id)
 {
-	if (pthread_mutex_init(mutex, NULL) == 0)
+	if (pthread_mutex_lock(mutex) == 0)
 	{
-		update_curr_time(clock);
-		printf("%ld %d has taken a fork\n", clock->curr, id);
+		print_status(clock, id, "has taken a fork");
 		return (true);
 	}
 	return (false);
@@ -26,8 +48,8 @@ int	assign_forks_index(int id, int *first_fork, int *second_fork, t_data *data)
 	}
 	else 
 	{
-		*first_fork = data->philo_count - 1;
-		*second_fork = data->philo_count - 2;
+		*first_fork = id - 1;
+		*second_fork = id - 2;
 	}
 }
 

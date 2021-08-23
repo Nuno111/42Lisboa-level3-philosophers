@@ -21,16 +21,18 @@ void	ft_exit(pthread_t *threads, char *msg)
 
 void	*init_thread(void *arg)
 {
-	t_clock clock;
-	t_data	*data;
-	int		id;
+	t_stats stats;
 
-	data = arg;
-	id = data->counter++;
-	while (true) {
-		if (!eat() || !sleep() || !think())
-			die();
+	stats.data = arg;
+	stats.id = stats.data->counter++;
+	stats.alive = true;
+	should_die(&stats);
+	while (stats.alive) {
+		eat();
+		sleep();
+		think();
 	}
+	die();
 }
 
 void	create_threads(t_data *data)
