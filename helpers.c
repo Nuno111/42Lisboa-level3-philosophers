@@ -28,7 +28,7 @@ void	*init_thread(void *arg)
 	stats.alive = true;
 	should_die(&stats);
 	while (stats.alive) {
-		eat();
+		try_to_eat(stats);
 		sleep();
 		think();
 	}

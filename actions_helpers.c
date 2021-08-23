@@ -4,27 +4,22 @@
 void	should_die(t_stats *stats)
 {
 	update_curr_time(&stats->clock);
-
 	if (stats->clock.curr - stats->last_eaten >= stats->data->time_to_die)
-		stats->alive = false;
-}
-
-void	print_status(t_clock *clock, int id, char *msg)
-{
-	update_curr_time(clock);
-
-	if (!will_die())
-	  printf("%ld %d %s\n", clock->curr, id, msg);
-	else
 	{
-		printf("%ld %d has died\n");
-		ft_exit(threads, )
+		print_status(stats, "has died");
+		ft_exit(&stats->data->fork, NULL);
 	}
-
-
 }
 
-bool	take_fork(pthread_mutex_t *mutex)
+void	print_status(t_stats *stats, char *msg)
+{
+	if (controls_mutex(&stats->data->can_talk))
+	  printf("%ld %d %s\n", stats->clock.curr, stats->id, msg);
+	else
+		ft_exit(&stats->data->fork, "An error has occured when trying to lock the mutex\n");
+}
+
+bool	controls_mutex(pthread_mutex_t *mutex)
 {
 	if (pthread_mutex_lock(mutex) == 0)	
 		return (true);	
@@ -51,12 +46,12 @@ void try_to_eat(t_stats *stats)
 	should_die(stats);
 	while (stats->alive)
 	{
-		if (take_fork(&stats->data->fork[stats->first_fork]))
+		if (controls_mutex(&stats->data->fork[stats->first_fork]))
 		{
-			if (take_fork(&stats->data->fork[stats->second_fork]))
+			if (controls_mutex(&stats->data->fork[stats->second_fork]))
 			{
-				print_status(clock, stats->id, "has taken a fork");
-				print_status(clock, stats->id, "has taken a fork");
+				print_status(stats, "has taken a fork");
+				print_status(stats, "has taken a fork");
 				eat();
 				break;
 			}
@@ -64,6 +59,6 @@ void try_to_eat(t_stats *stats)
 				pthread_mutex_unlock(&stats->data->fork[stats->first_fork]);
 		}
 		else 
-			usleep(10 * 1000);
+			should_die(stats);
 	}
 }

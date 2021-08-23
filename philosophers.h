@@ -23,6 +23,7 @@ typedef struct s_data
 	long		time_to_sleep;
 	long		must_eat_count;
 	pthread_mutex_t *fork;
+	pthread_mutex_t	can_talk;
 
 }				t_data;
 
