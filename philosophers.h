@@ -33,6 +33,8 @@ typedef struct s_stats
 	bool	alive;
 	long	last_eaten;
 	int		id;
+	int		first_fork;
+	int		second_fork;
 }				t_stats;
 
 void	ft_exit(pthread_t *threads, char *msg);

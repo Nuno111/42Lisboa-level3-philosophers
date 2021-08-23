@@ -24,52 +24,44 @@ void	print_status(t_clock *clock, int id, char *msg)
 
 }
 
-bool	take_fork(pthread_mutex_t *mutex,  t_clock *clock, int id)
+bool	take_fork(pthread_mutex_t *mutex)
 {
-	if (pthread_mutex_lock(mutex) == 0)
-	{
-		print_status(clock, id, "has taken a fork");
-		return (true);
-	}
+	if (pthread_mutex_lock(mutex) == 0)	
+		return (true);	
 	return (false);
 }
 
-void	drop_fork(pthread_mutex_t *mutex)
+int	assign_forks_index(t_stats *stats)
 {
-
-}
-
-int	assign_forks_index(int id, int *first_fork, int *second_fork, t_data *data)
-{
-	if (id == 1)
+	if (stats->id == 1)
 	{
-		*first_fork = 0;
-		*second_fork = data->philo_count - 1;
+		stats->first_fork = 0;
+		stats->second_fork = stats->data->philo_count - 1;
 	}
 	else 
 	{
-		*first_fork = id - 1;
-		*second_fork = id - 2;
+		stats->first_fork = stats->id - 1;
+		stats->second_fork = stats->id - 2;
 	}
 }
 
-void try_to_eat(t_data *data, t_clock *clock, int id)
+void try_to_eat(t_stats *stats)
 {
-	int first_fork;
-	int second_fork;
-
-	assign_forks_index(id, &first_fork, &second_fork, data);
-	while (true)
+	assign_forks_index(stats);
+	should_die(stats);
+	while (stats->alive)
 	{
-		if (take_fork(&data->fork[first_fork], clock, id))
+		if (take_fork(&stats->data->fork[stats->first_fork]))
 		{
-			if (take_fork(&data->fork[second_fork], clock, id))
+			if (take_fork(&stats->data->fork[stats->second_fork]))
 			{
+				print_status(clock, stats->id, "has taken a fork");
+				print_status(clock, stats->id, "has taken a fork");
 				eat();
 				break;
 			}
 			else
-				drop_fork(&data->fork[first_fork]);
+				pthread_mutex_unlock(&stats->data->fork[stats->first_fork]);
 		}
 		else 
 			usleep(10 * 1000);
