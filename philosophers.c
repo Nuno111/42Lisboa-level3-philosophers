@@ -15,6 +15,9 @@ static	void validate_input(int argc, char **argv)
 
 static	void init_params(int argc, char **argv, t_data *data)
 {
+	int i;
+
+	i = -1;
 	data->philo_count = ft_atoi(argv[1]);
 	data->time_to_die = ft_atoi(argv[2]);
 	data->time_to_eat = ft_atoi(argv[3]);
@@ -26,7 +29,8 @@ static	void init_params(int argc, char **argv, t_data *data)
 	data->fork= malloc(sizeof(pthread_mutex_t) * (data->philo_count));
 	if (!data->fork)
 		ft_exit(NULL, MEMORY_FAIL);
-	ft_memset(data->fork, 1, data->philo_count / 2);
+	while (++i < data->philo_count - 1)
+		ft_init_mutex(&data->fork[i]);
 }
 
 int main(int argc, char **argv)
