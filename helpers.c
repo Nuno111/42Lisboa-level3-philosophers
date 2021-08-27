@@ -22,24 +22,12 @@ void	*init_thread(void *arg)
 	}
 }
 
-void	create_threads(t_data *data)
+void	create_join_threads(t_data *data)
 {
-	pthread_t *threads;
-
-	threads = malloc(sizeof(pthread_t) * data->philo_count);
-	if (!threads)
-		ft_exit(NULL, MEMORY_FAIL);
-	data->counter = 0;
-	while (data->counter < data->philo_count - 1)
-	{
-		pthread_create(&threads[data->counter], NULL, init_thread, data);
-		data->counter++;
-	}
-	data->counter= 0;
-	while (data->counter < data->philo_count - 1)
-	{
-		pthread_join(threads[data->counter], NULL);
-		data->counter++;
-	}
-	free(threads);
+	data->counter = -1;
+	while (++data->counter < data->philo_count - 1)
+		ft_thread_create(&data->threads[data->counter], data);
+	data->counter= -1;
+	while (++data->counter < data->philo_count - 1)
+		ft_thread_join(&data->threads[data->counter], NULL);
 }

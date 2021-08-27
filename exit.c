@@ -2,7 +2,7 @@
 
 static void	ft_print_err(t_exit_code exit_code);
 
-void	ft_exit(pthread_t *threads, t_exit_code exit_code)
+void	ft_exit(t_data *data, t_exit_code exit_code)
 {
 	if (exit_code != SKIP_PRINTING)
 		ft_print_err(exit_code);

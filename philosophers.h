@@ -37,6 +37,7 @@ typedef struct s_data
 	long		time_to_eat;
 	long		time_to_sleep;
 	long		must_eat_count;
+	pthread_t		*threads;
 	pthread_mutex_t *fork;
 	pthread_mutex_t	can_talk;
 
@@ -54,6 +55,14 @@ typedef struct s_stats
 
 void	ft_exit(pthread_t *threads, t_exit_code exit_code);
 void	update_curr_time(t_clock *clock);
-void	create_threads(t_data *data);
+void	*init_thread(void *arg);
+void	create_join_threads(t_data *data);
+void	ft_exit(pthread_t *threads, t_exit_code exit_code);
+void	ft_thread_create(pthread_t *thread, t_data *data);
+void	ft_thread_join(pthread_t *thread, t_data *data);
+void	ft_init_mutex(pthread_mutex_t *mutex);
+void	ft_lock_mutex(pthread_mutex_t *mutex);
+void	ft_unlock_mutex(pthread_mutex_t *mutex);
+void	ft_destroy_mutex(pthread_mutex_t *mutex);
 
 #endif

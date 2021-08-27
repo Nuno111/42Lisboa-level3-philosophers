@@ -26,8 +26,11 @@ static	void init_params(int argc, char **argv, t_data *data)
 		data->must_eat_count = ft_atoi(argv[5]);
 	else
 		data->must_eat_count = 0;
-	data->fork= malloc(sizeof(pthread_mutex_t) * (data->philo_count));
+	data->mutex= malloc(sizeof(pthread_mutex_t) * data->philo_count);
 	if (!data->fork)
+		ft_exit(NULL, MEMORY_FAIL);
+	data->threads = malloc(sizeof(pthread_t) * data->philo_count);
+	if (!data->threads)
 		ft_exit(NULL, MEMORY_FAIL);
 	while (++i < data->philo_count - 1)
 		ft_init_mutex(&data->fork[i]);
@@ -39,8 +42,8 @@ int main(int argc, char **argv)
 
 	if (argc < 5 || argc > 6 )
 		ft_exit(NULL, WRONG_ARGUMENT_NB);
-	init_params(argc, argv, &data);
 	validate_input(argc, argv);
+	init_params(argc, argv, &data);
 	create_threads(&data);
 	return (0);
 }
