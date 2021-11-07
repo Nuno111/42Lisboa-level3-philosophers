@@ -2,32 +2,30 @@ NAME = philosophers
 
 CC = gcc
 
+RM = rm -rf
+
 ERR_FLAGS = -Wall -Wextra #-Werror
 
 DEBUG_FLAGS = -g -fsanitize=address
 
-DEP_FLAGS = -I. -Ilibft -lpthread
-
-LIBFT = libft/libft.a
+DEP_FLAGS = -I. -lpthread
 
 LIB = philosophers.h
 
 SRC = ${wildcard *.c}
 
-all: libft philosophers 
-
-libft:
-	cd libft && ${MAKE}
+all: philosophers 
 
 philosophers: ${LIB} ${SRC}
-	${CC} ${ERR_FLAGS} ${DEBUG_FLAGS} ${DEP_FLAGS} ${SRC} ${LIBFT} -o $@
+	${CC} ${ERR_FLAGS} ${DEBUG_FLAGS} ${DEP_FLAGS} ${SRC} -o $@
 
+basic: philosophers
+	./philosophers 5 800 200 200
 clean:
-	rm -rf philosophers *.dSYM
+	$(RM) $(NAME) *.dSYM
 
 fclean: clean
-	cd libft && ${MAKE} fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re libft 
+.PHONY: all clean fclean re 

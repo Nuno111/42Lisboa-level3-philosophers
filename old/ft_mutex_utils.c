@@ -1,11 +1,5 @@
 #include "philosophers.h"
 
-void	ft_init_mutex(pthread_mutex_t *mutex)
-{
-	if (pthread_mutex_init(mutex, NULL) != 0)
-		ft_exit_error(NULL, MUTEX_FAIL);
-}
-
 void	ft_lock_mutex(pthread_mutex_t *mutex)
 {
 	if (pthread_mutex_lock(mutex) != 0)
