@@ -8,7 +8,7 @@ ERR_FLAGS = -Wall -Wextra #-Werror
 
 DEBUG_FLAGS = -g -fsanitize=address
 
-DEP_FLAGS = -I. -lpthread
+DEP_FLAGS = -I. -pthread
 
 LIB = philosophers.h
 
@@ -21,6 +21,10 @@ philosophers: ${LIB} ${SRC}
 
 basic: philosophers
 	./philosophers 5 800 200 200
+
+leaks: philosophers
+	valgrind ./philosophers 2 800 200 200
+
 clean:
 	$(RM) $(NAME) *.dSYM
 

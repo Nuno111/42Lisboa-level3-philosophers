@@ -22,9 +22,9 @@ static	void init_data(t_data *data)
 	data->time_to_eat = 0;
 	data->time_to_sleep = 0;
 	data->must_eat_count = 0;
-	data->must_eat_count = 0;
 	data->threads = NULL;
 	data->forks = NULL;
+	data->philos = NULL;
 }
 
 static	int	set_data(int argc, char **argv, t_data *data)
@@ -42,12 +42,18 @@ static	int	set_data(int argc, char **argv, t_data *data)
 		data->must_eat_count = 0;
 	data->threads = malloc(sizeof(pthread_t) * data->philo_count);
 	data->forks = malloc(sizeof(pthread_mutex_t) * data->philo_count);
-	if (!data->threads || !data->forks)
+	data->philos = malloc(sizeof(t_philo) * data->philo_count);
+	if (!data->threads || !data->forks || !data->philos)
 		return (MEMORY_FAIL);
-	while (++i < data->philo_count - 1) {
+	while (++i < data->philo_count) {
 		if (pthread_mutex_init(&data->forks[i], NULL) != 0)
 			return (MUTEX_FAIL);
 	}
+	i = -1;
+	while (++i < data->philo_count) {
+		data->philos[i].id = i + 1;
+	}
+	
 	return (0);
 }
 
@@ -64,6 +70,6 @@ int main(int argc, char **argv)
 	data.error_code = set_data(argc, argv, &data);
 	if (data.error_code)
 		return ft_exit(&data, data.error_code);
-	//create_threads(&data);
+	start_program(&data);
 	return ft_exit(&data, SUCCESS);
 }

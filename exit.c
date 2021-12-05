@@ -26,17 +26,17 @@ static void	ft_print_err(int error_code)
 		printf("Error: Unknown error\n");
 }
 
-int	ft_exit(t_data *data, int error_code)
+int	ft_exit(t_data *data, int print_code)
 {
-	if (error_code != SUCCESS)
-		ft_print_err(error_code);
+	if (print_code != SUCCESS)
+		ft_print_err(print_code);
 	if(data) {
 		if (data->threads)
 			free(data->threads);
 		if (data->forks)
 			free(data->forks);
+		if (data->philos)
+			free(data->philos);
 	}
-	if (error_code)
-		return (error_code);
-	return (SUCCESS);
+	return (print_code);
 }

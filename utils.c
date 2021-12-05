@@ -31,6 +31,7 @@ void	ft_freearrays(char **array)
 	while (array[i])
 	{
 		free(array[i]);
+		array[i] = NULL;
 		i++;
 	}
 	free(array);
@@ -63,4 +64,11 @@ int	ft_atoi(const char *str)
 			return (0);
 	}
 	return (num);
+}
+
+void	update_curr_time(t_clock *clock)
+{
+	gettimeofday(&clock->saved_time, NULL);
+	clock->curr = (((clock->saved_time.tv_sec - clock->start.tv_sec) * 1000) +
+	((clock->saved_time.tv_usec - clock->start.tv_usec) / 1000));
 }

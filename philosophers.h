@@ -7,6 +7,7 @@
 # include <stdio.h>
 # include <stdbool.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 # define SUCCESS 0
 # define WRONG_ARGUMENT_NB 1
@@ -28,10 +29,16 @@ typedef struct s_clock
 	long curr;
 }				t_clock;
 
+typedef struct s_philo
+{
+	t_clock clock;
+	long	last_eaten;
+	int		id;
+}				t_philo;
+
 typedef struct s_data
 {
 	int			error_code;
-	int			counter;
 	long		philo_count;
 	long		time_to_die;
 	long		time_to_eat;
@@ -39,21 +46,14 @@ typedef struct s_data
 	long		must_eat_count;
 	pthread_t		*threads;
 	pthread_mutex_t *forks;
+	t_philo			*philos;
 }				t_data;
-
-typedef struct s_stats
-{
-	t_clock clock;
-	t_data	*data;
-	long	last_eaten;
-	int		id;
-	int		first_fork;
-	int		second_fork;
-}				t_stats;
 
 int		ft_exit(t_data *data, int error_code);
 void	ft_freearrays(char **array);
 bool	ft_str_is_numeric(char *str);
 int		ft_atoi(const char *str);
+int		start_program(t_data *data);
+void	update_curr_time(t_clock *clock);
 
 #endif
