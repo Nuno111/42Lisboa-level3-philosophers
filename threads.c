@@ -8,11 +8,22 @@ void *hello(void *arg) {
 	gettimeofday(&philo->clock.start, NULL);
 
 
-	if (philo->id % 2 == 0) usleep(1 * 1000000);
-
-	update_curr_time(&philo->clock);
-
-	printf("Philosopher number %d, started eating at %ld\n", philo->id, philo->clock.curr);
+	if (philo->id % 2 != 0) {
+		if (take_fork(philo->left_fork)) {
+			if(take_fork(philo->right_fork))
+				print_action(philo, FORKS_TAKEN);
+			else
+				release_fork(philo->left_fork);
+		}
+	}
+	else {
+		if (take_fork(philo->right_fork)) {
+			if(take_fork(philo->left_fork))
+				print_action(philo, FORKS_TAKEN);
+			else
+				release_fork(philo->right_fork);
+		}
+	}
 	
 	return (NULL);
 }

@@ -21,6 +21,13 @@
 # define MUTEX_LOCK_FAIL 9
 # define MUTEX_UNLOCK_FAIL 10
 # define SKIP_PRINTING 99
+# define FORKS_TAKEN 11
+
+typedef struct s_forks
+{
+	pthread_mutex_t	fork;
+	bool			taken;
+}				t_forks;
 
 typedef struct s_clock
 {
@@ -34,6 +41,9 @@ typedef struct s_philo
 	t_clock clock;
 	long	last_eaten;
 	int		id;
+	t_forks		*left_fork;
+	t_forks		*right_fork;
+	pthread_mutex_t	*can_talk;
 }				t_philo;
 
 typedef struct s_data
@@ -45,8 +55,9 @@ typedef struct s_data
 	long		time_to_sleep;
 	long		must_eat_count;
 	pthread_t		*threads;
-	pthread_mutex_t *forks;
+	t_forks			*forks;
 	t_philo			*philos;
+	pthread_mutex_t	*can_talk;
 }				t_data;
 
 int		ft_exit(t_data *data, int error_code);
@@ -55,5 +66,8 @@ bool	ft_str_is_numeric(char *str);
 int		ft_atoi(const char *str);
 int		start_program(t_data *data);
 void	update_curr_time(t_clock *clock);
+bool	take_fork(t_forks *fork);
+void	print_action(t_philo *philo, int action_code);
+void	release_fork(t_forks *fork);
 
 #endif

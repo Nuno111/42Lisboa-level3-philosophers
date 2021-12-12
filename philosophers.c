@@ -1,5 +1,20 @@
 #include "philosophers.h"
 
+void	init_philos(t_data *data) {
+	int i;
+
+	i = -1;
+	while (++i < data->philo_count) {
+		data->philos[i].id = i + 1;
+		data->philos[i].left_fork = &data->forks[data->philos[i].id - 1];
+		if (data->philos[i].id == 1)
+			data->philos[i].right_fork = &data->forks[data->philo_count - 1];
+		else
+			data->philos[i].right_fork = &data->forks[data->philos[i].id - 2];
+		data->philos[i].can_talk = data->can_talk;
+	}
+}
+
 static	int	validate_input(int argc, char **argv)
 {
 	int i;
@@ -41,18 +56,19 @@ static	int	set_data(int argc, char **argv, t_data *data)
 	else
 		data->must_eat_count = 0;
 	data->threads = malloc(sizeof(pthread_t) * data->philo_count);
-	data->forks = malloc(sizeof(pthread_mutex_t) * data->philo_count);
+	data->forks = malloc(sizeof(t_forks) * data->philo_count);
 	data->philos = malloc(sizeof(t_philo) * data->philo_count);
-	if (!data->threads || !data->forks || !data->philos)
+	data->can_talk = malloc(sizeof(pthread_mutex_t));
+	if (!data->threads || !data->forks || !data->philos || !data->can_talk)
 		return (MEMORY_FAIL);
 	while (++i < data->philo_count) {
-		if (pthread_mutex_init(&data->forks[i], NULL) != 0)
+		if (pthread_mutex_init(&data->forks[i].fork, NULL) != 0)
 			return (MUTEX_FAIL);
+		data->forks[i].taken = false;
 	}
-	i = -1;
-	while (++i < data->philo_count) {
-		data->philos[i].id = i + 1;
-	}
+	if (pthread_mutex_init(data->can_talk, NULL) != 0)
+		return (MUTEX_FAIL); 
+	init_philos(data);
 	
 	return (0);
 }
