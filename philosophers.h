@@ -22,12 +22,30 @@
 # define MUTEX_UNLOCK_FAIL 10
 # define SKIP_PRINTING 99
 # define FORKS_TAKEN 11
+# define THINKING 12
+# define SLEEPING 13
+# define SOMEONE_DIED 14
 
 typedef struct s_forks
 {
 	pthread_mutex_t	fork;
 	bool			taken;
 }				t_forks;
+
+typedef struct s_grim_reaper
+{
+	pthread_mutex_t	scythe;
+	bool			someone_died;
+
+}				t_grim_reaper;
+
+typedef struct s_stats {
+	long		philo_count;
+	long		time_to_die;
+	long		time_to_eat;
+	long		time_to_sleep;
+	long		must_eat_count;
+}				t_stats;
 
 typedef struct s_clock
 {
@@ -43,21 +61,20 @@ typedef struct s_philo
 	int		id;
 	t_forks		*left_fork;
 	t_forks		*right_fork;
-	pthread_mutex_t	*can_talk;
+	pthread_mutex_t	*talking;
+	t_grim_reaper	*grim_reaper;
+	t_stats			*stats;
 }				t_philo;
 
 typedef struct s_data
 {
 	int			error_code;
-	long		philo_count;
-	long		time_to_die;
-	long		time_to_eat;
-	long		time_to_sleep;
-	long		must_eat_count;
+	t_stats			stats;
 	pthread_t		*threads;
 	t_forks			*forks;
 	t_philo			*philos;
-	pthread_mutex_t	*can_talk;
+	pthread_mutex_t	talking;
+	t_grim_reaper	grim_reaper;
 }				t_data;
 
 int		ft_exit(t_data *data, int error_code);
@@ -69,5 +86,7 @@ void	update_curr_time(t_clock *clock);
 bool	take_fork(t_forks *fork);
 void	print_action(t_philo *philo, int action_code);
 void	release_fork(t_forks *fork);
+void	try_to_kill_philo(t_philo *philo);
+bool	fighting_for_forks(t_philo *philo);
 
 #endif
