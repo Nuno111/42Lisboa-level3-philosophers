@@ -7,7 +7,7 @@ void *start_dining(void *arg) {
 
 	gettimeofday(&philo->clock.start, NULL);
 
-	usleep(600000); //sleep for 600 microseconds
+	usleep(600 * 1000); //sleep for 600 microseconds
 
 	//someone should die at 600 miliseconds when doing 4 590 400 400
 

@@ -70,6 +70,8 @@ static	int	set_data(int argc, char **argv, t_data *data)
 	}
 	if (pthread_mutex_init(&data->talking, NULL) != 0)
 		return (MUTEX_FAIL); 
+	if (pthread_mutex_init(&data->grim_reaper.scythe, NULL) != 0)
+		return (MUTEX_FAIL); 
 	init_philos(data);
 	
 	return (0);
