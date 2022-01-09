@@ -21,10 +21,11 @@
 # define MUTEX_LOCK_FAIL 9
 # define MUTEX_UNLOCK_FAIL 10
 # define SKIP_PRINTING 99
-# define FORKS_TAKEN 11
+# define FORK_TAKEN 11
 # define THINKING 12
 # define SLEEPING 13
 # define SOMEONE_DIED 14
+# define STARTED_EATING 15
 
 typedef struct s_forks
 {
@@ -87,6 +88,6 @@ bool	take_fork(t_forks *fork);
 void	print_action(t_philo *philo, int action_code);
 void	release_fork(t_forks *fork);
 void	try_to_kill_philo(t_philo *philo);
-bool	fighting_for_forks(t_philo *philo);
+bool	forks_taken(t_philo *philo);
 
 #endif

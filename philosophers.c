@@ -15,6 +15,8 @@ void	init_philos(t_data *data) {
 			data->philos[i].right_fork = &data->forks[data->stats.philo_count - 1];
 		else
 			data->philos[i].right_fork = &data->forks[data->philos[i].id - 2];
+
+		gettimeofday(&data->philos[i].clock.start, NULL);
 	}
 }
 
