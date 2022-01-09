@@ -46,18 +46,11 @@ typedef struct s_stats {
 	long		time_to_eat;
 	long		time_to_sleep;
 	long		must_eat_count;
+	struct timeval start_time;
 }				t_stats;
-
-typedef struct s_clock
-{
-	struct timeval saved_time;
-	struct timeval start;
-	long curr;
-}				t_clock;
 
 typedef struct s_philo
 {
-	t_clock clock;
 	long	last_eaten;
 	int		id;
 	t_forks		*left_fork;
@@ -83,7 +76,7 @@ void	ft_freearrays(char **array);
 bool	ft_str_is_numeric(char *str);
 int		ft_atoi(const char *str);
 int		start_program(t_data *data);
-void	update_curr_time(t_clock *clock);
+long	get_curr_time(struct timeval start);
 bool	take_fork(t_forks *fork);
 void	print_action(t_philo *philo, int action_code);
 void	release_fork(t_forks *fork);

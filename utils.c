@@ -66,9 +66,11 @@ int	ft_atoi(const char *str)
 	return (num);
 }
 
-void	update_curr_time(t_clock *clock)
+long	get_curr_time(struct timeval start)
 {
-	gettimeofday(&clock->saved_time, NULL);
-	clock->curr = (((clock->saved_time.tv_sec - clock->start.tv_sec) * 1000) +
-	((clock->saved_time.tv_usec - clock->start.tv_usec) / 1000));
+	struct timeval current;
+
+	gettimeofday(&current, NULL);
+	return (((current.tv_sec - start.tv_sec ) * 1000) +
+	((current.tv_usec - start.tv_usec) / 1000));
 }

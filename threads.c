@@ -5,8 +5,6 @@ void *start_dining(void *arg) {
 
 	philo = (t_philo *)arg;
 
-	//gettimeofday(&philo->clock.start, NULL);
-
 	while (!philo->grim_reaper->someone_died) {
 		try_to_kill_philo(philo);
 		while (!philo->grim_reaper->someone_died && !forks_taken(philo))
@@ -31,6 +29,7 @@ void *start_dining(void *arg) {
 int	start_program(t_data *data) {
 	int i;
 
+	gettimeofday(&data->stats.start_time, NULL);
 	i = -1;
 	while (++i < data->stats.philo_count) {
 		if (pthread_create(&data->threads[i], NULL, start_dining, &data->philos[i]) != 0)
