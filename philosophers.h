@@ -37,7 +37,6 @@ typedef struct s_grim_reaper
 {
 	pthread_mutex_t	scythe;
 	bool			someone_died;
-
 }				t_grim_reaper;
 
 typedef struct s_stats {
@@ -46,7 +45,7 @@ typedef struct s_stats {
 	long		time_to_eat;
 	long		time_to_sleep;
 	long		must_eat_count;
-	struct timeval start_time;
+	long		start_time;
 }				t_stats;
 
 typedef struct s_philo
@@ -62,7 +61,7 @@ typedef struct s_philo
 
 typedef struct s_data
 {
-	int			error_code;
+	int				error_code;
 	t_stats			stats;
 	pthread_t		*threads;
 	t_forks			*forks;
@@ -76,11 +75,13 @@ void	ft_freearrays(char **array);
 bool	ft_str_is_numeric(char *str);
 int		ft_atoi(const char *str);
 int		start_program(t_data *data);
-long	get_curr_time(struct timeval start);
+long	get_curr_time(long start);
 bool	take_fork(t_forks *fork);
 void	print_action(t_philo *philo, int action_code);
 void	release_fork(t_forks *fork);
 void	try_to_kill_philo(t_philo *philo);
 bool	forks_taken(t_philo *philo);
+void	ft_usleep(int ms);
+long	get_time_in_miliseconds();
 
 #endif

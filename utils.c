@@ -66,11 +66,27 @@ int	ft_atoi(const char *str)
 	return (num);
 }
 
-long	get_curr_time(struct timeval start)
+long	get_curr_time(long start)
 {
-	struct timeval current;
+	long time_in_miliseconds;
 
-	gettimeofday(&current, NULL);
-	return (((current.tv_sec - start.tv_sec ) * 1000) +
-	((current.tv_usec - start.tv_usec) / 1000));
+	time_in_miliseconds = get_time_in_miliseconds();
+
+	return (time_in_miliseconds - start);
+}
+
+void	ft_usleep(int ms)
+{
+	long	start;
+
+	start = get_time_in_miliseconds();
+	while (get_time_in_miliseconds() - start < ms)
+		usleep(10);
+}
+
+long	get_time_in_miliseconds() {
+	struct timeval current_time;
+
+	gettimeofday(&current_time, NULL);
+	return ((current_time.tv_sec * 1000) + (current_time.tv_usec / 1000));
 }

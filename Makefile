@@ -22,6 +22,9 @@ philosophers: ${LIB} ${SRC}
 basic: philosophers
 	./philosophers 5 800 200 200
 
+large: philosophers
+	./philosophers 200 800 200 200
+
 leaks: philosophers
 	valgrind ./philosophers 2 800 200 200
 
