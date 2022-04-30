@@ -70,6 +70,7 @@ static	int	set_data(int argc, char **argv, t_data *data)
 		return (data->error_code = MUTEX_FAIL); 
 	if (pthread_mutex_init(&data->grim_reaper.scythe, NULL) != 0)
 		return (data->error_code = MUTEX_FAIL); 
+	data->stats.start_time = get_time_in_miliseconds();
 	init_philos(data);
 	
 	return (0);

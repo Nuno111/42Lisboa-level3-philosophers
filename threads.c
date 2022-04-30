@@ -23,6 +23,7 @@ void *start_dining(void *arg) {
 		while (!philo->grim_reaper->someone_died && thinking(philo))
 			try_to_kill_philo();
 		*/
+		ft_usleep(100);
 	}
 	
 	return (NULL);
@@ -32,7 +33,6 @@ int	start_program(t_data *data) {
 	int i;
 
 	i = -1;
-	data->stats.start_time = get_time_in_miliseconds();
 	while (++i < data->stats.philo_count)
 		if (pthread_create(&data->threads[i], NULL, start_dining, &data->philos[i]) != 0)
 			return (data->error_code = THREAD_CREATE_FAIL);

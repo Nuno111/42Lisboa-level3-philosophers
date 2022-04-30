@@ -1,4 +1,4 @@
-NAME = philosophers
+NAME = philo
 
 CC = gcc
 
@@ -14,19 +14,19 @@ LIB = philosophers.h
 
 SRC = ${wildcard *.c}
 
-all: philosophers 
+all: ${NAME} 
 
-philosophers: ${LIB} ${SRC}
+${NAME}: ${LIB} ${SRC}
 	${CC} ${ERR_FLAGS} ${DEBUG_FLAGS} ${DEP_FLAGS} ${SRC} -o $@
 
-basic: philosophers
-	./philosophers 5 800 200 200
+basic: ${NAME} 
+	./${NAME} 5 800 200 200
 
-large: philosophers
-	./philosophers 200 800 200 200
+large: ${NAME} 
+	./${NAME} 80 800 200 200
 
-leaks: philosophers
-	valgrind ./philosophers 2 800 200 200
+leaks: ${NAME} 
+	valgrind ./${NAME} 2 800 200 200
 
 clean:
 	$(RM) $(NAME) *.dSYM
